@@ -1,3 +1,31 @@
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee13b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee13b;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee13b;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d6dee14d;
+}
+
 .tim-typo {
   padding-left: 25%;
   margin-bottom: 40px;
@@ -29,8 +57,7 @@
   display: none;
 }
 
-.offline-doc .navbar.navbar-transparent .navbar-brand,
-.offline-doc .navbar.navbar-transparent .collapse .navbar-nav .nav-link {
+.offline-doc .navbar.navbar-transparent .navbar-brand, .offline-doc .navbar.navbar-transparent .collapse .navbar-nav .nav-link {
   color: #FFF;
 }
 
@@ -71,41 +98,29 @@
   z-index: 2;
 }
 
-
 @media all and (max-width: 991px) {
-
-  .offline-doc .navbar .navbar-collapse.collapse,
-  .offline-doc .navbar .navbar-collapse.collapse.in,
-  .offline-doc .navbar .navbar-collapse.collapsing {
+  .offline-doc .navbar .navbar-collapse.collapse, .offline-doc .navbar .navbar-collapse.collapse.in, .offline-doc .navbar .navbar-collapse.collapsing {
     display: block !important;
   }
-
-  .nav-open .offline-doc .navbar-wrapper,
-  .nav-open .offline-doc .navbar-toggler {
+  .nav-open .offline-doc .navbar-wrapper, .nav-open .offline-doc .navbar-toggler {
     -webkit-transform: translate3d(-260px, 0, 0);
     -moz-transform: translate3d(-260px, 0, 0);
     -o-transform: translate3d(-260px, 0, 0);
     -ms-transform: translate3d(-260px, 0, 0);
     transform: translate3d(-260px, 0, 0);
   }
-
-  .offline-doc .navbar-wrapper,
-  .offline-doc .navbar-toggler {
+  .offline-doc .navbar-wrapper, .offline-doc .navbar-toggler {
     -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
   }
-
   .offline-doc .navbar .collapse .navbar-nav .nav-item .nav-link {
     margin-left: 15px;
     color: #8b92a9 !important;
   }
 }
-
-
-
 
 #map {
   z-index: 2;
