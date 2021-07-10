@@ -145,8 +145,8 @@
             <div class="col-lg-6 col-md-12">
               <div class="card" style=" height:80vh;">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Employees Stats</h4>
-                  <p class="card-category">New employees on 15th September, 2016</p>
+                  <h4 class="card-title">Patient Queue</h4>
+                  <p class="card-category">15th September, 2016</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
@@ -278,72 +278,13 @@
             </div>
             <div class="col-lg-6 col-md-12">
               <div class="card">
-                <div class="card-header card-header-tabs card-header-primary">
-                  <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Add Patients</span>
-                      <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">bug_report</i> tab one
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#messages" data-toggle="tab">
-                            <i class="material-icons">code</i> tab two
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#settings" data-toggle="tab">
-                            <i class="material-icons">cloud</i> tab three
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Add Patients</h4>
+                  <p class="card-category">3:06 PM</p>
                 </div>
 
                 <div class="card-body">
-                  <div class="tab-content ">
-                    <div class="tab-pane " id="profile">
 
-                      <table class="table">
-                        <tbody>
-
-                          <tr>
-
-                            <div class="row">
-
-                              <td>
-                                <div class="form-group row">
-                                  <div class="col-xs-3">
-                                    <input type="text" class="form-control" id="" style="text-align: center;"
-                                      placeholder="Enter NIC">
-                                  </div>
-                                </div>
-                              </td>
-
-                            </div>
-
-                            <td>
-                              <button type="submit" class="btn btn-warning">Enqueue</button>
-                            </td>
-
-                    </div>
-
-                    </tr>
-
-                    <tr>
-
-                    </tr>
-
-                    </tbody>
-                    </table>
-
-                  </div>
                   <div class="tab-pane active" id="messages">
 
                     <table class="table">
@@ -353,14 +294,16 @@
                         <tr style="text-align: center;">
 
                           <td>
+                            <form>
+                              <div class="form-group mx-sm-3 mb-2">
+                                <input type="text" class="form-control" id="nic"
+                                  style="text-align: center; text-transform:uppercase; letter-spacing: 0.4em "
+                                  placeholder="NIC" autocomplete="off" autocapitalize="on"
+                                  onkeyup="this.value = this.value.toUpperCase();">
+                              </div>
 
-                            <div class="form-group mx-sm-3 mb-2">
-                              <input type="text" class="form-control" id="inputPassword2"
-                                style="text-align: center; text-transform:uppercase; letter-spacing: 0.4em "
-                                placeholder="NIC" autocomplete="off" autocapitalize="on">
-                            </div>
-
-                            <button class="btn btn-primary mb-2">Enqueue</button>
+                              <button id="enqueue" class="btn btn-primary mb-2">Enqueue</button>
+                            </form>
 
                           </td>
 
@@ -372,77 +315,6 @@
 
                   </div>
 
-                  <div class="tab-pane" id="settings">
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <span class="form-check-sign">
-                                  <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                          </td>
-                          <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">edit</i>
-                            </button>
-                            <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">close</i>
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value="" checked>
-                                <span class="form-check-sign">
-                                  <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                          </td>
-                          <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain
-                            swept through metro Detroit
-                          </td>
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">edit</i>
-                            </button>
-                            <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">close</i>
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value="" checked>
-                                <span class="form-check-sign">
-                                  <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                          </td>
-                          <td>Sign contract for "What are conference organizers afraid of?"</td>
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">edit</i>
-                            </button>
-                            <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                              <i class="material-icons">close</i>
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
                 </div>
               </div>
             </div>
@@ -604,6 +476,30 @@
   </div>
   </div>
 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBtuqHPRsAPaeJ744xIkjlfDzNfV7V1N7I",
+      authDomain: "private-medical-dispensary.firebaseapp.com",
+      databaseURL: "https://private-medical-dispensary-default-rtdb.firebaseio.com",
+      projectId: "private-medical-dispensary",
+      storageBucket: "private-medical-dispensary.appspot.com",
+      messagingSenderId: "230214242377",
+      appId: "1:230214242377:web:cdd4a6537b49660d202f98"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="../assets/js/firebase/enqueue.js"></script>
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -622,6 +518,7 @@
   <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+
   <script>
     $(document).ready(function () {
       $().ready(function () {
