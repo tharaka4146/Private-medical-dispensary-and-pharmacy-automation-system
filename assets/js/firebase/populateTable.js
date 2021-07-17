@@ -85,11 +85,11 @@ function AddItemsToTable(id, dateTime, no) {
 
     var gender = "";
     if (NICNo.length != 10 && NICNo.length != 12) {
-        console.log(NICNo);
+        // console.log(NICNo);
         $("#error").html("Invalid NIC NO");
     } else if (NICNo.length == 10 && !$.isNumeric(NICNo.substr(0, 9))) {
         $("#error").html("Invalid NIC NO");
-        console.log("e2");
+        // console.log("e2");
     }
     else {
         // Year

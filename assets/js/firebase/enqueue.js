@@ -1,56 +1,63 @@
-const nic = document.getElementById("nic");
+const nicInput = document.getElementById("nicType");
 const enqueue = document.getElementById("enqueue");
 
 const database = firebase.database();
 
 enqueue.addEventListener('click', (e) => {
-    e.preventDefault();
 
-    const currentDate = Date.now();
+    let isNicAvailable = false;
 
-    let no = 0;
-    var patientNo = database.ref("queue");
-    patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
-        snapshot.forEach(function (data) {
-            // console.log(data.val().no); // "Anrzej"
-            no = data.val().no;
-            // console.log(no);
+
+    function isAvailable() {
+        firebase.database().ref('queue').on('value',
+            function (AllRecords) {
+                AllRecords.forEach(
+                    function (CurrentRecord) {
+                        var nicAvailable = CurrentRecord.val().nic;
+                        // console.log(nicInput.value)
+                        if (nicInput.value == nicAvailable) {
+                            // console.log("okkk");
+                            isNicAvailable = true;
+                        }
+                    }
+                );
+            });
+    }
+
+    isAvailable();
+    if (isNicAvailable == true) {
+        console.log("okayyyy")
+
+        e.preventDefault();
+
+        const currentDate = Date.now();
+
+        let no = 0;
+        var patientNo = database.ref("queue");
+        patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
+            snapshot.forEach(function (data) {
+                // console.log(data.val().no); // "Anrzej"
+                no = data.val().no;
+                // console.log(no);
+            });
         });
-    });
 
-    database.ref('/queue/' + currentDate).set({
-        nic: nic.value,
-        dateTime: currentDate,
-        no: ++no,
-        isExamined: false,
-    });
-    document.getElementById("nic").value = "";
+        database.ref('/queue/' + currentDate).set({
+            nic: nicInput.value,
+            dateTime: currentDate,
+            no: ++no,
+            isExamined: false,
+        });
+
+        document.getElementById("nicType").value = "";
+
+        md.showNotificationPatientAdded('top', 'center')
+
+    } else {
+        e.preventDefault();
+
+
+        document.getElementById("nicType").value = "";
+        // md.showNotificationPatientAdded('top', 'center')
+    }
 });
-
-// database.collection('queue').onSnapshot(snapshot => {
-//     let changes = snapshot.docChanges();
-//     changes.forEach(change => {
-//         console.log(change.doc.data());
-//         // if(change.type == 'added'){
-//         //     renderCafe(change.doc);
-//         // } else if (change.type == 'removed'){
-//         //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
-//         //     cafeList.removeChild(li);
-//         // }
-//     });
-// });
-
-    /*
-    const d = new Date(currentDate)
-    sxsx
-    const year = d.getFullYear()
-    const month = d.getMonth()
-    const date = d.getDate()
-    
-    const hours = d.getHours()
-    const minutes = d.getMinutes()
-    
-    const dateTime = d.toLocaleString()
-    console.log(dateTime)
-    
-    */
