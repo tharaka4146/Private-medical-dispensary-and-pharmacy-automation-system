@@ -8,8 +8,6 @@ enqueue.addEventListener('click', (e) => {
 
     const currentDate = Date.now();
 
-    document.getElementById("nic").value = "";
-
 
 
     let no = 0;
@@ -18,23 +16,23 @@ enqueue.addEventListener('click', (e) => {
         snapshot.forEach(function (data) {
             // console.log(data.val().no); // "Anrzej"
             no = data.val().no;
-            console.log(no);
+            // console.log(no);
         });
     });
     /*
-        const d = new Date(currentDate)
+    const d = new Date(currentDate)
     sxsx
-        const year = d.getFullYear()
-        const month = d.getMonth()
-        const date = d.getDate()
+    const year = d.getFullYear()
+    const month = d.getMonth()
+    const date = d.getDate()
     
-        const hours = d.getHours()
-        const minutes = d.getMinutes()
+    const hours = d.getHours()
+    const minutes = d.getMinutes()
     
-        const dateTime = d.toLocaleString()
-        console.log(dateTime)
+    const dateTime = d.toLocaleString()
+    console.log(dateTime)
     
-        */
+    */
 
     database.ref('/queue/' + currentDate).set({
         nic: nic.value,
@@ -42,6 +40,7 @@ enqueue.addEventListener('click', (e) => {
         no: ++no,
         isExamined: false,
     });
+    document.getElementById("nic").value = "";
 });
 
 // database.collection('queue').onSnapshot(snapshot => {
