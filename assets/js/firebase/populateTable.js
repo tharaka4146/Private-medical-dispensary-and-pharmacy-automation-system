@@ -24,6 +24,7 @@ function SelectAllData() {
             date.innerHTML = today;
 
             let availablePatients = 0;
+            let currentPatient = 0;
 
             AllRecords.forEach(
                 function (CurrentRecord) {
@@ -34,6 +35,10 @@ function SelectAllData() {
                     var isExamined = CurrentRecord.val().isExamined;
                     // console.log(d2.getFullYear());
                     if (isExamined == false && d2.getFullYear() == year && d2.getDate() == day) {
+                        if (availablePatients == 0) {
+                            currentPatient = no;
+                            document.getElementById('currentPatient').innerHTML = currentPatient
+                        }
                         availablePatients++;
                         AddItemsToTable(id, dateTime, no);
                     }

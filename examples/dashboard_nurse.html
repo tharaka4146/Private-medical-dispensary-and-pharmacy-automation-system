@@ -21,7 +21,67 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 
+  <style>
+    .circleBorder {
+      float: right;
+      margin: 15px;
+      font-size: 15px;
+      background: #752785;
+      border-radius: 50%;
+      line-height: 40px;
+      text-align: center;
+      width: 40px;
+      font-weight: 400;
+      margin: 10px;
+      /* box-shadow: 0 10px 28px #6f1c9296, 3px 3px 3px #6f1c9280; */
+    }
 
+
+    /* Add this attribute to the element that needs a tooltip */
+    [data-tooltip] {
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    /* Hide the tooltip content by default */
+    [data-tooltip]:before,
+    [data-tooltip]:after {
+      visibility: hidden;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Position tooltip above the element */
+    [data-tooltip]:before {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px;
+      margin-left: -80px;
+      padding: 7px;
+      width: 160px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #1b0220;
+      content: attr(data-tooltip);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    /* Show tooltip content on hover */
+    [data-tooltip]:hover:before,
+    [data-tooltip]:hover:after {
+      visibility: visible;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+      opacity: 1;
+    }
+  </style>
 
 </head>
 
@@ -123,7 +183,6 @@
       </nav>
       <!-- End Navbar -->
 
-
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -131,9 +190,9 @@
               <div class="card" style=" height:80vh;">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Patient Queue
-                    <div style="float:right; padding:15px 15px 15px 0px; font-size:15px;" id="remainingPatientCount">
+                    <div id="currentPatient" class="circleBorder" data-tooltip="current patient number">
                     </div>
-                    <div style="float:right; padding:15px; font-size:15px; opacity: 0.7;" id="">remaining patients</div>
+                    <!-- <div style="float:right; padding:15px; font-size:15px; opacity: 0.4;" id=""></div> -->
                   </h4>
 
                   <p id="date" class="card-category"></p>
@@ -160,12 +219,10 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Add Patients
-                    <div style="float:right; padding:15px 15px 15px 0px; font-size:15px;" id="currentPatient">
-                    </div>
-                    <div style="float:right; padding:15px; font-size:15px" id="">current patient</div>
+                    <div class="circleBorder" id="remainingPatientCount" data-tooltip="remaining patients"></div>
+                    <!-- <div style="float:right; padding:15px; font-size:15px" id="">current patient</div> -->
                   </h4>
                   <p class="card-category"><span id='ct'></span></p>
-
 
                 </div>
 
