@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Customer table</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+<body>
+  <table class="table table-striped" id="ex-table">
+    <tr id="tr">
+      <th>Email</th>
+      <th>Name</th>
+      <th>Phone</th>
+    </tr>
+  </table>
+
+  <script>
+    var config = {
+      apiKey: "AIzaSyBtuqHPRsAPaeJ744xIkjlfDzNfV7V1N7I",
+      authDomain: "private-medical-dispensary.firebaseapp.com",
+      databaseURL: "https://private-medical-dispensary-default-rtdb.firebaseio.com",
+      projectId: "private-medical-dispensary",
+      storageBucket: "private-medical-dispensary.appspot.com",
+      messagingSenderId: "230214242377",
+      appId: "1:230214242377:web:cdd4a6537b49660d202f98"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database().ref().child('queue');
+    database.once('value', function (snapshot) {
+      if (snapshot.exists()) {
+        var content = '';
+
+        snapshot.forEach(function (data) {
+          var Email = data.val().nic;
+          var Name = data.val().nic;
+          var Phone = data.val().nic;
+          content += '<tr>';
+          content += '<td>' + Email + '</td>'; //column1
+          content += '<td>' + Name + '</td>';//column2
+          content += '<td>' + Phone + '</td>';//column2
+          content += '</tr>';
+        });
+
+        $('#ex-table').append(content);
+      }
+    });
+  </script>
+</body>
+
+</html>
