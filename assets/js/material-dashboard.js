@@ -292,6 +292,28 @@ md = {
     });
   },
 
+  showNotificationPatientAdded: function (from, align) {
+    type = ['', 'info', 'danger', 'success', 'warning', 'primary'];
+
+    color = 5;
+
+    $.notify({
+      icon: "check",
+      message: "<center>Patient added to queue</center>"
+
+    }, {
+      type: type[color],
+      timer: 1000,
+      placement: {
+        from: from,
+      },
+      offset: {
+        x: 73,
+      }
+
+    });
+  },
+
   checkScrollForTransparentNavbar: debounce(function () {
     if ($(document).scrollTop() > 260) {
       if (transparent) {

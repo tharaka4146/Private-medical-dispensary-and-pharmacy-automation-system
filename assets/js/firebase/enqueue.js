@@ -8,6 +8,19 @@ enqueue.addEventListener('click', (e) => {
 
     const currentDate = Date.now();
 
+    document.getElementById("nic").value = "";
+
+
+
+    let no = 0;
+    var patientNo = database.ref("queue");
+    patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
+        snapshot.forEach(function (data) {
+            // console.log(data.val().no); // "Anrzej"
+            no = data.val().no;
+            console.log(no);
+        });
+    });
     /*
         const d = new Date(currentDate)
     sxsx
@@ -25,19 +38,21 @@ enqueue.addEventListener('click', (e) => {
 
     database.ref('/queue/' + currentDate).set({
         nic: nic.value,
-        dateTime: currentDate
+        dateTime: currentDate,
+        no: ++no,
+        isExamined: false,
     });
 });
 
-database.collection('queue').onSnapshot(snapshot => {
-    let changes = snapshot.docChanges();
-    changes.forEach(change => {
-        console.log(change.doc.data());
-        // if(change.type == 'added'){
-        //     renderCafe(change.doc);
-        // } else if (change.type == 'removed'){
-        //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
-        //     cafeList.removeChild(li);
-        // }
-    });
-});
+// database.collection('queue').onSnapshot(snapshot => {
+//     let changes = snapshot.docChanges();
+//     changes.forEach(change => {
+//         console.log(change.doc.data());
+//         // if(change.type == 'added'){
+//         //     renderCafe(change.doc);
+//         // } else if (change.type == 'removed'){
+//         //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+//         //     cafeList.removeChild(li);
+//         // }
+//     });
+// });
