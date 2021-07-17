@@ -293,22 +293,31 @@ md = {
   },
 
   showNotificationPatientAdded: function (from, align) {
+
+    let no = 1;
+    var patientNo = database.ref("queue");
+    patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
+      snapshot.forEach(function (data) {
+        // console.log(data.val().no); // "Anrzej"
+        no = data.val().no + 1;
+        // console.log(no);
+      });
+    });
+
     type = ['', 'info', 'danger', 'success', 'warning', 'primary'];
 
-    color = 5;
+    color = 4;
 
     $.notify({
-      icon: "check",
-      message: "<center>Patient added to queue</center>"
+      icon: "0",
+      message: "<center>Patient added to queue<br><h3>" + no + "</h3></center>",
 
     }, {
       type: type[color],
-      timer: 1000,
+      timer: 5000,
       placement: {
         from: from,
-      },
-      offset: {
-        x: 73,
+        align: align
       }
 
     });

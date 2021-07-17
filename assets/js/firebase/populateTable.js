@@ -23,6 +23,7 @@ function SelectAllData() {
 
             date.innerHTML = today;
 
+            let availablePatients = 0;
 
             AllRecords.forEach(
                 function (CurrentRecord) {
@@ -33,6 +34,7 @@ function SelectAllData() {
                     var isExamined = CurrentRecord.val().isExamined;
                     // console.log(d2.getFullYear());
                     if (isExamined == false && d2.getFullYear() == year && d2.getDate() == day) {
+                        availablePatients++;
                         AddItemsToTable(id, dateTime, no);
                     }
                 }
@@ -48,6 +50,7 @@ function SelectAllData() {
             function display_ct() {
                 var x = new Date()
                 document.getElementById('ct').innerHTML = x.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+                document.getElementById('remainingPatientCount').innerHTML = availablePatients
                 // console.log("time t");
                 display_c();
             }

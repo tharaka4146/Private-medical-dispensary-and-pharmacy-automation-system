@@ -8,8 +8,6 @@ enqueue.addEventListener('click', (e) => {
 
     const currentDate = Date.now();
 
-
-
     let no = 0;
     var patientNo = database.ref("queue");
     patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
@@ -19,20 +17,6 @@ enqueue.addEventListener('click', (e) => {
             // console.log(no);
         });
     });
-    /*
-    const d = new Date(currentDate)
-    sxsx
-    const year = d.getFullYear()
-    const month = d.getMonth()
-    const date = d.getDate()
-    
-    const hours = d.getHours()
-    const minutes = d.getMinutes()
-    
-    const dateTime = d.toLocaleString()
-    console.log(dateTime)
-    
-    */
 
     database.ref('/queue/' + currentDate).set({
         nic: nic.value,
@@ -55,3 +39,18 @@ enqueue.addEventListener('click', (e) => {
 //         // }
 //     });
 // });
+
+    /*
+    const d = new Date(currentDate)
+    sxsx
+    const year = d.getFullYear()
+    const month = d.getMonth()
+    const date = d.getDate()
+    
+    const hours = d.getHours()
+    const minutes = d.getMinutes()
+    
+    const dateTime = d.toLocaleString()
+    console.log(dateTime)
+    
+    */

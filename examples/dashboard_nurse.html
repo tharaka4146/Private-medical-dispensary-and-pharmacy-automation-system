@@ -130,17 +130,22 @@
             <div class="col-lg-6 col-md-12">
               <div class="card" style=" height:80vh;">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Patient Queue</h4>
+                  <h4 class="card-title">Patient Queue
+                    <div style="float:right; padding:15px 15px 15px 0px; font-size:15px;" id="remainingPatientCount">
+                    </div>
+                    <div style="float:right; padding:15px; font-size:15px; opacity: 0.7;" id="">remaining patients</div>
+                  </h4>
+
                   <p id="date" class="card-category"></p>
                 </div>
                 <div class="card-body table-responsive">
 
-                  <table class="table table-hover" id="table1">
+                  <table class="table table-hover text-center" id="table1">
 
                     <thead class="text-warning">
-                      <th><b>ID</b></th>
-                      <th><b>Name</b></th>
-                      <th><b>Salary</b></th>
+                      <th><b>Number</b></th>
+                      <th><b>NIC</b></th>
+                      <th><b>Age</b></th>
                     </thead>
 
                     <tbody id="tbody1">
@@ -154,8 +159,13 @@
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Add Patients</h4>
+                  <h4 class="card-title">Add Patients
+                    <div style="float:right; padding:15px 15px 15px 0px; font-size:15px;" id="currentPatient">
+                    </div>
+                    <div style="float:right; padding:15px; font-size:15px" id="">current patient</div>
+                  </h4>
                   <p class="card-category"><span id='ct'></span></p>
+
 
                 </div>
 
