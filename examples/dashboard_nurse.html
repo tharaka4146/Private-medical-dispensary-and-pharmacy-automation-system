@@ -97,7 +97,9 @@
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
           Creative Tim
         </a></div>
+
       <div class="sidebar-wrapper">
+
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="./dashboard.html">
@@ -152,12 +154,15 @@
     </div>
 
     <div class="main-panel">
+
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Dashboard Nurse</a>
           </div>
+
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -165,6 +170,8 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
+
+
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
 
@@ -240,12 +247,51 @@
                             <form>
                               <div class="form-group mx-sm-3 mb-2">
                                 <input type="text" class="form-control" id="nicType"
-                                  style="text-align: center; text-transform:uppercase; letter-spacing: 0.4em "
+                                  style="text-align: center; text-transform:uppercase; letter-spacing: 0.4em;"
                                   placeholder="NIC" autocomplete="off" autocapitalize="on"
                                   onkeyup="this.value = this.value.toUpperCase();">
                               </div>
 
                               <button id="enqueue" class="btn btn-primary mb-2">Enqueue</button>
+
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                Launch demo modal
+                              </button>
+
+                              <!-- Modal -->
+
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content" style="padding: 50px; background-color: #202940;" style="">
+                                    <div class="">
+                                      <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Add Patient</h5> -->
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                      <input type="text" class="form-control" id="nicType2"
+                                        style="text-align: center; text-transform:uppercase; letter-spacing: 0.4em;"
+                                        placeholder="NIC" autocomplete="off" autocapitalize="on"
+                                        onkeyup="this.value = this.value.toUpperCase();">
+                                      <input type="text" class="form-control" id="nameType"
+                                        style="text-align: center; text-transform:uppercase; letter-spacing: 0.1em;"
+                                        placeholder="Name" autocomplete="off" autocapitalize="on"
+                                        onkeyup="this.value = this.value.toUpperCase();">
+                                    </div>
+
+                                    <div class="">
+                                      <!-- <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button> -->
+                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
 
                             </form>
 
