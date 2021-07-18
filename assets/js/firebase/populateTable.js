@@ -31,16 +31,17 @@ function SelectAllData() {
                     var id = CurrentRecord.val().nic;
                     var dateTime = CurrentRecord.val().dateTime;
                     const d2 = new Date(currentDate)
+                    const dayOld = new Date(dateTime)
                     var no = CurrentRecord.val().no;
                     var isExamined = CurrentRecord.val().isExamined;
-                    // console.log(d2.getFullYear());
-                    if (isExamined == false && d2.getFullYear() == year && d2.getDate() == day) {
+                    if (isExamined == false && d2.getFullYear() == year && d2.getDate() == dayOld.getDate()) {
                         if (availablePatients == 0) {
                             currentPatient = no;
                             document.getElementById('currentPatient').innerHTML = currentPatient
                         }
                         availablePatients++;
                         document.getElementById('remainingPatientCount').innerHTML = availablePatients
+                        // console.log(d2.getDate());
                         AddItemsToTable(id, dateTime, no);
                     }
                 }

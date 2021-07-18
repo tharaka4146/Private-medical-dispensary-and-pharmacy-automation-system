@@ -299,7 +299,7 @@ md = {
     patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
       snapshot.forEach(function (data) {
         // console.log(data.val().no); // "Anrzej"
-        no = data.val().no + 1;
+        no = data.val().no;
         // console.log(no);
       });
     });
