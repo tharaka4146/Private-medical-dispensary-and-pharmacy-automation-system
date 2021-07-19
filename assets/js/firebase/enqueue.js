@@ -9,12 +9,23 @@ const addNewPatient = document.getElementById("addNewPatient");
 const database = firebase.database();
 let no = 0;
 let isNicAvailable = false;
+const currentDate = Date.now();
+
 
 var patientNo = database.ref("queue");
-patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
-    snapshot.forEach(function (data) {
-        no = data.val().no;
-    });
+
+patientNo.orderByChild("dateTime").limitToLast(1).on("value", function (snapshot) {
+    snapshot.forEach(
+        function (CurrentRecord) {
+            var dateTime = CurrentRecord.val().dateTime;
+            const d2 = new Date(currentDate)
+            const dateTime2 = new Date(dateTime)
+            console.log(dateTime2.getFullYear())
+            if (d2.getFullYear() == dateTime2.getFullYear() && d2.getDate() == dateTime2.getDate()) {
+                no = CurrentRecord.val().no;
+            }
+        }
+    );
 });
 
 enqueue.addEventListener('click', (e) => {
@@ -24,7 +35,7 @@ enqueue.addEventListener('click', (e) => {
 
             isNicAvailable = false;
 
-            firebase.database().ref('queue').orderByChild('nic').equalTo(nicInput.value).on('value',
+            firebase.database().ref('queue').orderByChild('nic').equalTo(nicInput.value.toString().trim()).on('value',
                 function (AllRecords) {
                     AllRecords.forEach(
                         function (CurrentRecord) {
