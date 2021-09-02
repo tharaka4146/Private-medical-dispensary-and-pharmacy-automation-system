@@ -1,5 +1,7 @@
 function SelectAllData() {
 
+    // document.getElementById("nicType").focus();
+
     firebase.database().ref('queue').on('value',
         function (AllRecords) {
             $("#tbody1 tr").remove();
@@ -14,12 +16,17 @@ function SelectAllData() {
             if (day > 3 && day < 21) post = 'th';
             switch (day % 10) {
                 case 1: post = "st";
+                    break;
                 case 2: post = "nd";
+                    break;
                 case 3: post = "rd";
+                    break;
                 default: post = "th";
+                    break;
+
             }
 
-            const today = day + post + " " + " " + month + ", " + year;
+            const today = day + " <sup>" + post + "</sup> " + month + ", " + year;
 
             date.innerHTML = today;
 
