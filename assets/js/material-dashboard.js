@@ -295,13 +295,23 @@ md = {
   showNotificationPatientAdded: function (from, align) {
 
     let no = 1;
+    const currentDate = Date.now();
+
+
     var patientNo = database.ref("queue");
-    patientNo.orderByChild("no").limitToLast(1).on("value", function (snapshot) {
-      snapshot.forEach(function (data) {
-        // console.log(data.val().no); // "Anrzej"
-        no = data.val().no + 1;
-        // console.log(no);
-      });
+
+    patientNo.orderByChild("dateTime").limitToLast(1).on("value", function (snapshot) {
+      snapshot.forEach(
+        function (CurrentRecord) {
+          var dateTime = CurrentRecord.val().dateTime;
+          const d2 = new Date(currentDate)
+          const dateTime2 = new Date(dateTime)
+          console.log(dateTime2.getFullYear())
+          if (d2.getFullYear() == dateTime2.getFullYear() && d2.getDate() == dateTime2.getDate()) {
+            no = CurrentRecord.val().no;
+          }
+        }
+      );
     });
 
     type = ['', 'info', 'danger', 'success', 'warning', 'primary'];

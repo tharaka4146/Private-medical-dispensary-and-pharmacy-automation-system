@@ -31,16 +31,17 @@ function SelectAllData() {
                     var id = CurrentRecord.val().nic;
                     var dateTime = CurrentRecord.val().dateTime;
                     const d2 = new Date(currentDate)
+                    const dayOld = new Date(dateTime)
                     var no = CurrentRecord.val().no;
                     var isExamined = CurrentRecord.val().isExamined;
-                    // console.log(d2.getFullYear());
-                    if (isExamined == false && d2.getFullYear() == year && d2.getDate() == day) {
+                    if (isExamined == false && d2.getFullYear() == year && d2.getDate() == dayOld.getDate()) {
                         if (availablePatients == 0) {
                             currentPatient = no;
                             document.getElementById('currentPatient').innerHTML = currentPatient
                         }
                         availablePatients++;
                         document.getElementById('remainingPatientCount').innerHTML = availablePatients
+                        // console.log(d2.getDate());
                         AddItemsToTable(id, dateTime, no);
                     }
                 }
@@ -85,11 +86,11 @@ function AddItemsToTable(id, dateTime, no) {
 
     var gender = "";
     if (NICNo.length != 10 && NICNo.length != 12) {
-        console.log(NICNo);
+        // console.log(NICNo);
         $("#error").html("Invalid NIC NO");
     } else if (NICNo.length == 10 && !$.isNumeric(NICNo.substr(0, 9))) {
         $("#error").html("Invalid NIC NO");
-        console.log("e2");
+        // console.log("e2");
     }
     else {
         // Year

@@ -1,0 +1,21 @@
+<head>
+    <title>test</title>
+    <style type="text/css">
+    .top {
+        height:100px;
+        width:200px;
+        background-color:green;
+    }
+    </style>
+    <script type="text/javascript">
+    function removeIFrame() {
+        var frame = document.getElementById("target");
+        frame.parentNode.removeChild(frame);
+    }
+    </script>
+</head>
+<body>
+    <div class="top" onclick="removeIFrame();"></div>
+    <iframe id="target" src="http://www.disney.com" width="100" height="100"></iframe>
+    <div class="top"></div>
+</body>
